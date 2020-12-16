@@ -1,2 +1,2 @@
 # Datadog-APM
-Exemplo de monitoração de APM no Datadog utilizando uma aplicação python (Hello World) com docker no ECS.
+Exemplo de docker-compose para monitoração de APM  com Datadog  com uma simples aplicação em python.
