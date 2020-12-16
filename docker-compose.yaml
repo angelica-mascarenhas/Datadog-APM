@@ -1,0 +1,21 @@
+version: '3'
+services:
+    web:
+       build: .
+       ports:
+         - "8080:8080"
+       environment:
+         - DD_AGENT_HOST=datadog-agent
+         - DD_TRACE_AGENT_PORT=8126
+         - DD_SERVICE=datadog-APM
+    datadog-agent:
+       image: "datadog/agent:latest"
+       links:
+          - web
+       ports:
+          - "8126:8126"
+       environment:
+         - DD_API_KEY=$DD_API_KEY
+         - DD_APM_ENABLE=true
+         - DD_APM_NON_LOCAL_TRAFFIC=true
+#         - DD_SITE=datadoghq.com
